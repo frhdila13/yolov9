@@ -412,7 +412,7 @@ def train(hyp, opt, device, callbacks):  # hyp is path/to/hyp.yaml or hyp dictio
             if f.exists():
                 strip_optimizer(f)  # strip optimizers
                 if f is best:
-                    LOGGER.info(f'\nValidating {f}...')
+                    LOGGER.info(f'Validation Loss: {results[-3:]}')
                     results, _, _ = validate.run(
                         data_dict,
                         batch_size=batch_size // WORLD_SIZE * 2,
